@@ -1,0 +1,11 @@
+.guesser {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center; }
+  .guesser ul {
+    list-style-type: none;
+    margin: none;
+    padding: 0; }
+    .guesser ul li {
+      display: inline-block;
+      margin: 0 5px; }

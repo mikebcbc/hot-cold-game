@@ -1,5 +1,8 @@
 body {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  background: #232526;
+  background: -webkit-linear-gradient(to right, #232526, #414345);
+  background: linear-gradient(to right, #232526, #414345);
 }
