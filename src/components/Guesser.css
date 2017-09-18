@@ -1,10 +1,15 @@
 .guesser {
-  max-width: 600px;
+  max-width: 540px;
+  height: 360px;
   margin: 0 auto;
-  text-align: center; }
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center; }
   .guesser ul {
     list-style-type: none;
-    margin: none;
+    margin: 0;
     padding: 0; }
     .guesser ul li {
       display: inline-block;
