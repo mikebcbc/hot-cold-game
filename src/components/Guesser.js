@@ -12,11 +12,6 @@ class Guesser extends Component {
         </div>
         <div className="status">Hot</div>
         <GuessInput />
-        <div className="guess-number">Guess #0</div>
-        <ul className="guess-history">
-          <li>21</li>
-          <li>52</li>
-        </ul>
       </div>
     );
   }
