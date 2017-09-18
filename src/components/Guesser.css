@@ -1,11 +1,14 @@
 .guesser {
+  color: #28262C;
   max-width: 540px;
-  height: 360px;
+  border-radius: 5px;
+  background-color: #998FC7;
+  height: 300px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center; }
   .guesser ul {
     list-style-type: none;
@@ -14,3 +17,9 @@
     .guesser ul li {
       display: inline-block;
       margin: 0 5px; }
+  .guesser .guess-history {
+    background: #D4C2FC;
+    width: 100%;
+    height: 50px;
+    border-radius: 0 0 5px 5px;
+    padding: 15px 0; }

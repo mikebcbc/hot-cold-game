@@ -1,0 +1,5 @@
+.guess-input {
+  display: flex;
+  flex-direction: column; }
+  .guess-input button {
+    margin-top: 15px; }

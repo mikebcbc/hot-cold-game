@@ -1,9 +1,12 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background: #232526;
-  background: linear-gradient(to right, #232526, #414345);
+  background: linear-gradient(to top, #c33764, #1d2671);
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -6,6 +6,7 @@ class GuessInput extends Component {
     return (
       <div className="guess-input">
         <input name="guess" type="text" />
+        <button type="submit" for="guess">Guess</button>
       </div>
     );
   }
