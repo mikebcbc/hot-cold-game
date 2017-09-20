@@ -1,5 +1,22 @@
 .guess-input {
   display: flex;
-  flex-direction: column; }
-  .guess-input button {
-    margin-top: 15px; }
+  flex-direction: column;
+  width: 100%;
+  min-height: 50%;
+  justify-content: space-between; }
+  .guess-input .form {
+    display: flex;
+    flex-direction: column; }
+    .guess-input .form input {
+      width: 200px;
+      margin: 0 auto; }
+    .guess-input .form button {
+      margin-top: 15px;
+      width: 200px;
+      margin: 0 auto; }
+  .guess-input .guess-history {
+    background: #D4C2FC;
+    width: 100%;
+    height: 50px;
+    border-radius: 0 0 5px 5px;
+    padding: 15px 0; }

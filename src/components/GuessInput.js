@@ -6,18 +6,40 @@ class GuessInput extends Component {
     super(props);
 
     this.state = {
-      guessed: [1, 2, 5, 6]
+      guessed: [],
+      guessCount: 0,
+      currentGuess: null,
+      correctNumber: Math.floor(Math.random() * (100 - 1 + 1)) + 1
     }
+
+    this.distributeGuess = this.distributeGuess.bind(this);
   }
+
+  // resetState() -- New game, reset state.
+
+  distributeGuess() {
+    this.setState((prev, props)=> ({
+      guessCount: prev.guessCount + 1,
+      guessed: [...prev.guessed, prev.currentGuess]
+    }));
+  }
+  listenGuess(current) {
+    this.setState({
+      currentGuess: current
+    });
+  }
+
   render() {
     const guessedNumbers = this.state.guessed.map((number, index) => {
       return <li key={index}>{number}</li>
     });
     return (
       <div className="guess-input">
-        <input name="guess" type="text" />
-        <button type="submit" htmlFor="guess">Guess</button>
-        <div className="guess-number">Guess #0</div>
+        <div className="form">
+          <input name="guess" type="text" onChange={e => this.listenGuess(e.target.value)} />
+          <button type="submit" htmlFor="guess" onClick={this.distributeGuess}>Guess</button>
+        </div>
+        <div className="guess-number">Guess #{this.state.guessCount}</div>
         <ul className="guess-history">
           {guessedNumbers}
         </ul>

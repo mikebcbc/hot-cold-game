@@ -10,6 +10,12 @@
   text-align: center;
   justify-content: space-between;
   align-items: center; }
+  .guesser .sub-heading {
+    padding: 15px; }
+  .guesser .status {
+    margin-bottom: auto;
+    padding: 15px;
+    width: 100%; }
   .guesser ul {
     list-style-type: none;
     margin: 0;
@@ -17,9 +23,3 @@
     .guesser ul li {
       display: inline-block;
       margin: 0 5px; }
-  .guesser .guess-history {
-    background: #D4C2FC;
-    width: 100%;
-    height: 50px;
-    border-radius: 0 0 5px 5px;
-    padding: 15px 0; }
