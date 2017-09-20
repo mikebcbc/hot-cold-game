@@ -9,7 +9,8 @@ class GuessInput extends Component {
       guessed: [],
       guessCount: 0,
       currentGuess: null,
-      correctNumber: Math.floor(Math.random() * (100 - 1 + 1)) + 1
+      correctNumber: Math.floor(Math.random() * (100 - 1 + 1)) + 1,
+      correctStatus: false
     }
 
     this.distributeGuess = this.distributeGuess.bind(this);
@@ -22,10 +23,13 @@ class GuessInput extends Component {
       guessCount: prev.guessCount + 1,
       guessed: [...prev.guessed, prev.currentGuess]
     }));
+    if (this.state.currentGuess === this.state.correctNumber) {
+      console.log('yay');
+    }
   }
   listenGuess(current) {
     this.setState({
-      currentGuess: current
+      currentGuess: Number(current)
     });
   }
 
