@@ -8,6 +8,7 @@ class GuessInput extends Component {
     this.state = {
       guessed: [],
       guessCount: 0,
+      closeStatus: null,
       currentGuess: null,
       correctNumber: Math.floor(Math.random() * (100 - 1 + 1)) + 1,
       correctStatus: false
@@ -24,7 +25,15 @@ class GuessInput extends Component {
       guessed: [...prev.guessed, prev.currentGuess]
     }));
     if (this.state.currentGuess === this.state.correctNumber) {
-      console.log('yay');
+      alert('yay');
+    } else if (this.state.currentGuess <= (this.state.correctNumber + 10) && this.state.currentGuess >= (this.state.correctNumber - 10)) {
+      this.setState({
+        closeStatus: 'Hot'
+      })
+    } else {
+      this.setState({
+        closeStatus: 'Cold'
+      })
     }
   }
   listenGuess(current) {
@@ -39,6 +48,7 @@ class GuessInput extends Component {
     });
     return (
       <div className="guess-input">
+        <div className="status">{this.state.closeStatus}</div>
         <div className="form">
           <input name="guess" type="text" onChange={e => this.listenGuess(e.target.value)} />
           <button type="submit" htmlFor="guess" onClick={this.distributeGuess}>Guess</button>

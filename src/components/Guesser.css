@@ -12,10 +12,6 @@
   align-items: center; }
   .guesser .sub-heading {
     padding: 15px; }
-  .guesser .status {
-    margin-bottom: auto;
-    padding: 15px;
-    width: 100%; }
   .guesser ul {
     list-style-type: none;
     margin: 0;

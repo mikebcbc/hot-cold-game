@@ -10,7 +10,6 @@ class Guesser extends Component {
         <div className="sub-heading">
           <h2>Make a guess!</h2>
         </div>
-        <div className="status">Hot</div>
         <GuessInput />
       </div>
     );
