@@ -2,8 +2,9 @@ import React from 'react';
 import './GuessStatus.css';
 
 function GuessStatus(props) {
+	let classes = `${props.closeStatus} status`;
 	return (
-		<div className="status">{props.closeStatus}</div>
+		<div className={classes}>{props.closeStatus}</div>
 	)
 }
 

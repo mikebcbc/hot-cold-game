@@ -3,10 +3,17 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  justify-content: space-between; }
+  justify-content: center; }
   .guess-input .status {
     padding: 15px;
-    width: 100%; }
+    height: 54px;
+    width: 100%;
+    font-size: 20px;
+    text-transform: capitalize; }
+    .guess-input .status.cold {
+      color: #89c8ff; }
+    .guess-input .status.hot {
+      color: #960c0c; }
   .guess-input .form {
     display: flex;
     flex-direction: column; }
@@ -14,12 +21,29 @@
       width: 200px;
       margin: 0 auto; }
     .guess-input .form button {
-      margin-top: 15px;
       width: 200px;
-      margin: 0 auto; }
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+      margin: 15px auto;
+      border: none;
+      background-color: #A30015;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s; }
+      .guess-input .form button:hover {
+        background-color: #730b19; }
+      .guess-input .form button:disabled {
+        background-color: grey; }
+  .guess-input .error {
+    height: 19px; }
+  .guess-input .guess-number {
+    margin-top: auto; }
   .guess-input .guess-history {
     background: #D4C2FC;
     width: 100%;
     height: 50px;
     border-radius: 0 0 5px 5px;
-    padding: 15px 0; }
+    padding: 15px 0;
+    margin-top: auto; }

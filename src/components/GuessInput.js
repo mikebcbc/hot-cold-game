@@ -11,16 +11,27 @@ class GuessInput extends Component {
       guessed: [],
       guessCount: 0,
       closeStatus: null,
-      currentGuess: null,
+      currentGuess: '',
       correctNumber: Math.floor(Math.random() * (100 - 1 + 1)) + 1,
       correctStatus: false,
       errorMessage: null
     }
 
     this.distributeGuess = this.distributeGuess.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
-  // resetState() -- New game, reset state.
+  resetState() {
+    this.setState({
+      guessed: [],
+      guessCount: 0,
+      closeStatus: null,
+      currentGuess: '',
+      correctNumber: Math.floor(Math.random() * (100 - 1 + 1)) + 1,
+      correctStatus: false,
+      errorMessage: null
+    })
+  }
 
   distributeGuess(e) {
     e.preventDefault();
@@ -32,7 +43,7 @@ class GuessInput extends Component {
       alert('yay');
     } else {
       this.setState({
-        closeStatus: Math.abs(this.state.currentGuess - this.state.correctNumber) <= 10 ? 'Hot' : 'Cold'
+        closeStatus: Math.abs(this.state.currentGuess - this.state.correctNumber) <= 10 ? 'hot' : 'cold'
       })
     }
   }
@@ -44,6 +55,8 @@ class GuessInput extends Component {
       error = 'The value must be a number.';
     } else if (number <= 0 || number > 100) {
       error = 'The value must be between 1 and 100.';
+    } else if (this.state.guessed.indexOf(number) > -1) {
+      error = "You've already guessed this number.";
     }
     
     if (!error) {
@@ -53,7 +66,8 @@ class GuessInput extends Component {
       });
     } else {
       this.setState({
-        errorMessage: error
+        errorMessage: error,
+        currentGuess: current
       })
     }
   }
@@ -63,12 +77,13 @@ class GuessInput extends Component {
       <div className="guess-input">
         <GuessStatus closeStatus={this.state.closeStatus} />
         <form className="form" onSubmit={this.distributeGuess}>
-          <input name="guess" type="text" onChange={e => this.listenGuess(e.target.value)} />
-          <button type="submit" htmlFor="guess" disabled={Boolean(this.state.errorMessage)}>Guess</button>
+          <input name="guess" autoComplete="off" type="text" onChange={e => this.listenGuess(e.target.value)} value={this.state.currentGuess} />
+          <button type="submit" htmlFor="guess" disabled={Boolean(this.state.errorMessage || !this.state.currentGuess)}>Guess</button>
         </form>
         <div className="error">{this.state.errorMessage}</div>
         <div className="guess-number">Guess #{this.state.guessCount}</div>
         <GuessHistory guessed={this.state.guessed} />
+        <button onClick={this.resetState}>New Game</button>
       </div>
     );
   }
